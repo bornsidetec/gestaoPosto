@@ -1,0 +1,43 @@
+object fRelatorio: TfRelatorio
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSizeToolWin
+  Caption = 'Relat'#243'rio'
+  ClientHeight = 260
+  ClientWidth = 490
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlFiltros: TPanel
+    Left = 0
+    Top = 0
+    Width = 490
+    Height = 215
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = 272
+    ExplicitTop = 136
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 215
+    Width = 490
+    Height = 45
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+    ExplicitLeft = 168
+    ExplicitTop = 200
+    ExplicitWidth = 185
+  end
+end

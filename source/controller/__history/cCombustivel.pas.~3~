@@ -1,0 +1,51 @@
+unit cCombustivel;
+
+interface
+
+uses
+  mCombustivel, dCombustivel, System.SysUtils;
+
+type
+  TCombustivelController = class
+  public
+    procedure Pesquisar(sDescricao: string);
+    procedure CarregarImposto(oImposto: TCombustivel; iId: Integer);
+    function Inserir(oImposto: TCombustivel; var sErro: string): Boolean;
+    function Alterar(oImposto: TCombustivel; var sErro: string): Boolean;
+    function Excluir(iId: Integer; var sErro: string): Boolean;
+  end;
+
+implementation
+
+{ TCombustivelController }
+
+function TCombustivelController.Alterar(oImposto: TCombustivel;
+  var sErro: string): Boolean;
+begin
+
+end;
+
+procedure TCombustivelController.CarregarImposto(oImposto: TCombustivel;
+  iId: Integer);
+begin
+
+end;
+
+function TCombustivelController.Excluir(iId: Integer;
+  var sErro: string): Boolean;
+begin
+
+end;
+
+function TCombustivelController.Inserir(oImposto: TCombustivel;
+  var sErro: string): Boolean;
+begin
+
+end;
+
+procedure TCombustivelController.Pesquisar(sDescricao: string);
+begin
+
+end;
+
+end.

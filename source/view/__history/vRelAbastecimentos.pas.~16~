@@ -1,0 +1,82 @@
+unit vRelAbastecimentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, vRelatorio, System.Actions,
+  Vcl.ActnList, System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Mask;
+
+type
+  TfRelAbastecimentos = class(TfRelatorio)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    medtDataIni: TMaskEdit;
+    Label2: TLabel;
+    medtDataFim: TMaskEdit;
+    procedure actVisualizarExecute(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Imprimir;
+    procedure Validar;
+  public
+    { Public declarations }
+  end;
+
+var
+  fRelAbastecimentos: TfRelAbastecimentos;
+
+implementation
+
+uses
+  rAbastecimentos;
+
+{$R *.dfm}
+
+procedure TfRelAbastecimentos.actVisualizarExecute(Sender: TObject);
+begin
+  Validar;
+  Imprimir;
+end;
+
+procedure TfRelAbastecimentos.Imprimir;
+begin
+  if not Assigned(fReportAbastecimentos) then
+    Application.CreateForm(TfReportAbastecimentos, fReportAbastecimentos);
+  try
+    fReportAbastecimentos.rlblFiltros.Caption := 'Período: ' + medtDataIni.Text + ' até ' + medtDataFim.Text;
+    fReportAbastecimentos.dDataIni := StrToDateTime(medtDataIni.Text);
+    fReportAbastecimentos.dDataFim := StrToDateTime(medtDataFim.Text + ' 23:59:59');
+
+    fReportAbastecimentos.Imprimir;
+  finally
+    //FreeAndNil(fReportAbastecimentos);
+  end;
+end;
+
+procedure TfRelAbastecimentos.Validar;
+begin
+  if medtDataIni.Text = '  /  /    ' then
+  begin
+    medtDataIni.SetFocus;
+    raise Exception.Create('Data Inicial não preenchida');
+  end;
+
+  if medtDataFim.Text = '  /  /    ' then
+  begin
+    medtDataIni.SetFocus;
+    raise Exception.Create('Data Final não preenchida');
+  end;
+
+  try
+    medtDataIni.SetFocus;
+    StrToDate(medtDataIni.Text);
+    medtDataFim.SetFocus;
+    StrToDate(medtDataFim.Text);
+  except
+    raise Exception.Create('Data Inválida');
+  end;
+end;
+
+end.

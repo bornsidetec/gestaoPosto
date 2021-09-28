@@ -1,0 +1,10 @@
+unit cCombustivel;
+
+interface
+
+uses
+  mCombustivel, dCombustivel, System.SysUtils;
+
+implementation
+
+end.

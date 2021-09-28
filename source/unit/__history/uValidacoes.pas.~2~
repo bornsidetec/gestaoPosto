@@ -1,0 +1,16 @@
+unit uValidacoes;
+
+interface
+
+type
+
+  TValidacoes = class
+  private
+    { private declarations }
+  public
+    { public declarations }
+  end;
+
+implementation
+
+end.

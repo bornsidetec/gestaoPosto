@@ -1,0 +1,31 @@
+unit vRelatorio;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, System.Actions,
+  Vcl.ActnList, System.ImageList, Vcl.ImgList;
+
+type
+  TfRelatorio = class(TForm)
+    pnlFiltros: TPanel;
+    Panel1: TPanel;
+    ImageList: TImageList;
+    ActionList: TActionList;
+    actFechar: TAction;
+    actVisualizar: TAction;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fRelatorio: TfRelatorio;
+
+implementation
+
+{$R *.dfm}
+
+end.

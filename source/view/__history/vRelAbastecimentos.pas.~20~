@@ -1,0 +1,96 @@
+unit vRelAbastecimentos;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, vRelatorio, System.Actions,
+  Vcl.ActnList, System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.Mask, uValidacoes;
+
+type
+  TfRelAbastecimentos = class(TfRelatorio)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    medtDataIni: TMaskEdit;
+    Label2: TLabel;
+    medtDataFim: TMaskEdit;
+    procedure actVisualizarExecute(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Imprimir;
+    procedure Validar;
+  public
+    { Public declarations }
+    sData1, sData2: TDateTime;
+  end;
+
+var
+  fRelAbastecimentos: TfRelAbastecimentos;
+
+implementation
+
+uses
+  rAbastecimentos;
+
+{$R *.dfm}
+
+procedure TfRelAbastecimentos.actVisualizarExecute(Sender: TObject);
+begin
+  Validar;
+  Imprimir;
+end;
+
+procedure TfRelAbastecimentos.Imprimir;
+begin
+  if not Assigned(fReportAbastecimentos) then
+    Application.CreateForm(TfReportAbastecimentos, fReportAbastecimentos);
+  try
+    fReportAbastecimentos.rlblFiltros.Caption := 'Período: ' + medtDataIni.Text + ' até ' + medtDataFim.Text;
+    fReportAbastecimentos.dDataIni := StrToDateTime(medtDataIni.Text);
+    fReportAbastecimentos.dDataFim := StrToDateTime(medtDataFim.Text + ' 23:59:59');
+
+    fReportAbastecimentos.Imprimir;
+  finally
+    //FreeAndNil(fReportAbastecimentos);
+  end;
+end;
+
+procedure TfRelAbastecimentos.Validar;
+begin
+
+  if not TValidacoes.ValidarDatas( then
+
+
+
+
+  if medtDataIni.Text = '  /  /    ' then
+  begin
+    medtDataIni.SetFocus;
+    raise Exception.Create('Data Inicial não preenchida');
+  end;
+
+  if medtDataFim.Text = '  /  /    ' then
+  begin
+    medtDataIni.SetFocus;
+    raise Exception.Create('Data Final não preenchida');
+  end;
+
+  try
+    medtDataIni.SetFocus;
+    sData1 := StrToDate(medtDataIni.Text);
+    medtDataFim.SetFocus;
+    sData2 := StrToDateTime(medtDataFim.Text + ' 23:59:59');
+  except
+    raise Exception.Create('Data Inválida');
+  end;
+
+  if sData1 > sData2 then
+  begin
+    medtDataFim.SetFocus;
+    raise Exception.Create('Data Inicial maior que a data Final');
+  end;
+
+end;
+
+end.

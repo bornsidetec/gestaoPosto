@@ -1,0 +1,25 @@
+unit dReports;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, dConexao;
+
+type
+  TdmReports = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmReports: TdmReports;
+
+implementation
+
+{%CLASSGROUP 'System.Classes.TPersistent'}
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,49 @@
+unit cAbastecimento;
+
+interface
+
+uses mAbastecimento;
+
+type
+  TAbastecimentoController = class
+  public
+    procedure Pesquisar(dData: TDateTime);
+    procedure CarregarAbastecimento(oAbastecimento: TAbastecimento; iId: Integer);
+    function Inserir(oTanque: TAbastecimento; var sErro: string): Boolean;
+    function Excluir(iId: Integer; var sErro: string): Boolean;
+    procedure ListarBombas;
+  end;
+
+implementation
+
+{ TAbastecimentoController }
+
+procedure TAbastecimentoController.CarregarAbastecimento(
+  oAbastecimento: TAbastecimento; iId: Integer);
+begin
+
+end;
+
+function TAbastecimentoController.Excluir(iId: Integer;
+  var sErro: string): Boolean;
+begin
+
+end;
+
+function TAbastecimentoController.Inserir(oTanque: TAbastecimento;
+  var sErro: string): Boolean;
+begin
+
+end;
+
+procedure TAbastecimentoController.ListarBombas;
+begin
+  dmAbastecimento.ListarBombas;
+end;
+
+procedure TAbastecimentoController.Pesquisar(dData: TDateTime);
+begin
+  dmAbastecimento.Pesquisar(dData);
+end;
+
+end.

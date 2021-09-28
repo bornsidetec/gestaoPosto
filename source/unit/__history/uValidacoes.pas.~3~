@@ -1,0 +1,51 @@
+unit uValidacoes;
+
+interface
+
+type
+
+  TValidacoes = class
+  private
+    { private declarations }
+  public
+    { public declarations }
+    class function ValidaDatas(sData1, sData2: string; out sErro: string;
+      out dData1, dData2: TDateTime): Boolean;
+  end;
+
+implementation
+
+{ TValidacoes }
+
+class function TValidacoes.ValidaDatas(sData1, sData2: string;
+  out sErro: string; out dData1, dData2: TDateTime): Boolean;
+begin
+  if sData1 = '  /  /    ' then
+  begin
+    medtDataIni.SetFocus;
+    raise Exception.Create('Data Inicial não preenchida');
+  end;
+
+  if medtDataFim.Text = '  /  /    ' then
+  begin
+    medtDataIni.SetFocus;
+    raise Exception.Create('Data Final não preenchida');
+  end;
+
+  try
+    medtDataIni.SetFocus;
+    sData1 := StrToDate(medtDataIni.Text);
+    medtDataFim.SetFocus;
+    sData2 := StrToDateTime(medtDataFim.Text + ' 23:59:59');
+  except
+    raise Exception.Create('Data Inválida');
+  end;
+
+  if sData1 > sData2 then
+  begin
+    medtDataFim.SetFocus;
+    raise Exception.Create('Data Inicial maior que a data Final');
+  end;
+end;
+
+end.

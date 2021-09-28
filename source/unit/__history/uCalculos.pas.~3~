@@ -1,0 +1,27 @@
+unit uCalculos;
+
+interface
+
+type
+TCalculos = class
+public
+  { public declarations }
+  class function Total(iQuantidade: Integer; dValor: Double): Double;
+  class function Imposto(dAliquota: Double; dValor: Double): Double;
+end;
+
+implementation
+
+{ TCalculos }
+
+class function TCalculos.Imposto(dAliquota, dValor: Double): Double;
+begin
+
+end;
+
+class function TCalculos.Total(iQuantidade: Integer; dValor: Double): Double;
+begin
+
+end;
+
+end.

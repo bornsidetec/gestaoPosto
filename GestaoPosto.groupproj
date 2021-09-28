@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{71507C63-A3BF-4E3B-85D9-F0B54CA4EE78}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="source\GestaoPostoApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="source\test\GestaoPostoAppTests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GestaoPostoApp">
+        <MSBuild Projects="source\GestaoPostoApp.dproj"/>
+    </Target>
+    <Target Name="GestaoPostoApp:Clean">
+        <MSBuild Projects="source\GestaoPostoApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GestaoPostoApp:Make">
+        <MSBuild Projects="source\GestaoPostoApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="GestaoPostoAppTests">
+        <MSBuild Projects="source\test\GestaoPostoAppTests.dproj"/>
+    </Target>
+    <Target Name="GestaoPostoAppTests:Clean">
+        <MSBuild Projects="source\test\GestaoPostoAppTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GestaoPostoAppTests:Make">
+        <MSBuild Projects="source\test\GestaoPostoAppTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GestaoPostoApp;GestaoPostoAppTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GestaoPostoApp:Clean;GestaoPostoAppTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GestaoPostoApp:Make;GestaoPostoAppTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

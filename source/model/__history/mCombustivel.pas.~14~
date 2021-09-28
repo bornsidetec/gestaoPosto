@@ -1,0 +1,44 @@
+unit mCombustivel;
+
+interface
+
+uses
+  System.SysUtils, mImposto;
+type
+  TCombustivel = class
+  private
+    FValor: Double;
+    FDescricao: string;
+    FId: Integer;
+    FImposto: TImposto;
+    FImpostoId: Integer;
+    procedure SetDescricao(const Value: string);
+    procedure SetImposto(const Value: Integer);
+
+  public
+    property Id: Integer read FId write FId;
+    property Descricao: string read FDescricao write SetDescricao;
+    property Valor: Double read FValor write FValor;
+    property Imposto: integer read FImpostoId write SetImposto;
+
+  end;
+
+implementation
+
+{ TCombustivel }
+
+
+procedure TCombustivel.SetDescricao(const Value: string);
+begin
+  if Value = EmptyStr then
+    raise EArgumentException.Create('Descrição não informada');
+
+  FDescricao := Value;
+end;
+
+procedure TCombustivel.SetImposto(const Value: Integer);
+begin
+  FImpostoId := FImposto.Id;
+end;
+
+end.

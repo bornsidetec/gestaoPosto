@@ -1,0 +1,36 @@
+unit mAbastecimento;
+
+interface
+
+type
+  TAbastecimento = class
+  private
+    FId: Integer;
+    FBomba: Integer;
+    FQuantidade: Integer;
+    FData: TDateTime;
+    FValor: Double;
+    FValorImposto: Double;
+    FValorTotal: Double;
+    FAliquota: Double;
+    FTotalPagar: Double;
+
+  public
+    property Id: Integer read FId write FId;
+    property Bomba: Integer read FBomba write FBomba;
+    property Data: TDateTime read FData write FData;
+    property Quantidade: Integer read FQuantidade write FQuantidade;
+    property Valor: Double read FValor write FValor;
+    property ValorTotal: Double read FValorTotal write FValorTotal;
+    property Aliquota: Double read FAliquota write FAliquota;
+    property ValorImposto: Double read FValorImposto write FValorImposto;
+    property TotalPagar: Double read FTotalPagar write FTotalPagar;
+
+  end;
+
+
+implementation
+
+{ TAbastecimento }
+
+end.
