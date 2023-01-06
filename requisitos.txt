@@ -1,5 +1,3 @@
-Prazo de Entrega: 28/09 até às 12:00 horas.
-
 Requisitos funcionais:
 Você foi contratado para analisar e desenvolver um software para gerenciar os abastecimentos e tanques de combustíveis do posto ABC. Sabendo disso, leia com atenção as informações que o gerente do posto descreveu:
 1) Preciso controlar os abastecimentos feitos durante cada dia, identificando a bomba utilizada, a quantidade de litros e o valor abastecido;
